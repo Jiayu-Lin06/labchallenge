@@ -1,0 +1,21 @@
+// sum R0
+// op1: R1
+// op2: R2
+// op2_shifted: R3
+
+MOV R0, #0                       // sum
+MOV R1, #12
+MOV R2, #5
+MOV R3, R2                       // op2_shifted = op2
+MOV R4, #1                       // set up AND
+MOV R5, #0 
+
+MOV R1, R1                      // writes flag N & Z
+JEQ 7                                  // Jump (out of the loop) when result is 0
+
+AND R5, R1, R4                // writes N & Z
+JEQ 2                                 // Jump when result of and is 0 
+ADD R0, R3                       // then part
+LSL R3, R3, #1
+LSR R1, R1, #1 
+JMP -7   
