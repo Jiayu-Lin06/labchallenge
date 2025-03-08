@@ -1,0 +1,18 @@
+// example of using mul
+EXT #0xFF
+MOV R0, #0xFF
+EXT #0xFF
+MOV R1, #0xFF
+
+MOVC1 R0, R1 // load multiplier unit with operators, after this value in R0, R1 is no longer necessary for multiplication.
+MOVC2 R0, R0 // low 16 bits
+MOVC3 R1, R1 // high 16 bits
+MOVC4 R2, R2 // AH BL LSB
+MOVC5 R3, R3 // AH BL MSB
+MOVC6 R4, R4 // AL BH LSB
+MOVC7 R5, R5 // AL BH MSB
+
+ADD R6, R2, R4
+ADC R7, R3, R5 // R2, R3, R4, R5 can be reused now
+ADD R2, R6, R0
+ADC R3, R7, R1
