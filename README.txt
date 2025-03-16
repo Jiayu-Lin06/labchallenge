@@ -15,3 +15,5 @@ MOVC7: 16 MSB AH BL PRODUCT
 
 then use ADD and ADC instruction to add up products.
 32 bits result stored in 2 registers
+
+unsigned multiplication only
